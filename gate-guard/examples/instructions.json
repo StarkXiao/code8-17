@@ -1,0 +1,62 @@
+{
+  "instructions": [
+    {
+      "seq": 1,
+      "gate_id": "G1",
+      "action": "SET_FLOW",
+      "target_flow": 35.0,
+      "issued_at": "+0h",
+      "duration_hours": 1.0,
+      "hold_hours": 3.0,
+      "note": "正常调度：小幅度增加泄量（在设备启闭速率内）"
+    },
+    {
+      "seq": 2,
+      "gate_id": "G1",
+      "action": "SET_OPENING",
+      "target_opening": 3.5,
+      "issued_at": "+0.5h",
+      "duration_hours": 1.0,
+      "hold_hours": 3.0,
+      "note": "错误指令：开度超过闸门上限3.0m"
+    },
+    {
+      "seq": 3,
+      "gate_id": "G1",
+      "action": "SET_OPENING",
+      "target_opening": 2.0,
+      "issued_at": "+1h",
+      "duration_hours": 0.5,
+      "hold_hours": 3.0,
+      "note": "错误指令：0.5h内动作1.2m，超过0.5m/h启闭速率"
+    },
+    {
+      "seq": 4,
+      "gate_id": "G1",
+      "action": "SET_OPENING",
+      "target_opening": 0.0,
+      "issued_at": "+1.5h",
+      "duration_hours": 3.0,
+      "hold_hours": 4.0,
+      "note": "错误指令：全关断流（低于生态基流），且入库上涨将导致上游漫限"
+    },
+    {
+      "seq": 5,
+      "gate_id": "G1",
+      "action": "SET_FLOW",
+      "target_flow": 200.0,
+      "issued_at": "+2h",
+      "duration_hours": 2.0,
+      "hold_hours": 4.0,
+      "note": "错误指令：要求流量超过当前水头泄流能力"
+    },
+    {
+      "seq": 6,
+      "gate_id": "G9",
+      "action": "SET_OPENING",
+      "target_opening": 1.0,
+      "issued_at": "+2h",
+      "note": "错误指令：目标闸门不存在"
+    }
+  ]
+}

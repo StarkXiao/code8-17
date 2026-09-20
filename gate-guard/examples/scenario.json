@@ -1,0 +1,66 @@
+{
+  "comment": "某河道节制闸核验场景：1 座平板闸门连接上游库区与下游河道",
+  "start_time": "2026-09-20T08:00:00",
+  "step_hours": 0.25,
+  "default_horizon_hours": 6.0,
+  "constraints": {
+    "min_head_diff": 0.3,
+    "max_head_diff": 3.5,
+    "min_total_flow": 20.0,
+    "warning_margin": 0.1
+  },
+  "pools": [
+    {
+      "id": "upstream",
+      "name": "上游库区",
+      "initial_level": 6.5,
+      "surface_area": 2000000,
+      "bounds": { "min": 6.0, "max": 6.8 },
+      "min_level_rate": 0.5,
+      "max_level_rate": 0.3,
+      "area_curve": [
+        [6.0, 1800000],
+        [6.5, 2000000],
+        [6.8, 2200000]
+      ]
+    },
+    {
+      "id": "downstream",
+      "name": "下游河道",
+      "initial_level": 4.2,
+      "surface_area": 500000,
+      "bounds": { "min": 3.8, "max": 5.0 },
+      "min_level_rate": 0.6,
+      "max_level_rate": 0.4
+    }
+  ],
+  "gates": [
+    {
+      "id": "G1",
+      "name": "1号节制闸",
+      "upstream_pool": "upstream",
+      "downstream_pool": "downstream",
+      "width": 9.0,
+      "sill_elevation": 4.0,
+      "max_opening": 3.0,
+      "discharge_coef": 0.62,
+      "weir_coef": 0.385,
+      "open_rate": 0.5,
+      "close_rate": 0.5,
+      "initial_opening": 0.8
+    }
+  ],
+  "inflows": {
+    "upstream": [
+      [0.0, 60.0],
+      [3.0, 120.0],
+      [6.0, 120.0]
+    ]
+  },
+  "withdrawals": {
+    "downstream": [
+      [0.0, 25.0],
+      [6.0, 25.0]
+    ]
+  }
+}

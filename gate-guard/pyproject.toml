@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gate-guard"
+version = "1.0.0"
+description = "水利闸门调度指令核验系统：逐条校验指令与上下游水位约束，冲突直接阻断下发"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+gate-guard = "gate_guard.cli:main"
+
+[tool.setuptools]
+packages = ["gate_guard"]
