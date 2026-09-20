@@ -1,0 +1,15 @@
+{
+  "name": "gate-guard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "水利闸门调度指令核验系统：逐条校验指令与上下游水位约束是否冲突，冲突即阻断下发",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "verify": "node src/cli/run-scenarios.js",
+    "serve": "node src/server/index.js",
+    "test": "node --test test/"
+  }
+}
